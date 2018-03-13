@@ -3,6 +3,12 @@ import './css/pure-min.css';
 import './css/side-menu.css';
 
 class App extends Component {
+
+  constructor(){
+    super();
+    this.state = {lista:[{nome: 'paulo', email: 'paulo@gmail.com'}, {nome: 'joao', email: 'joao@gmail.com'}]};
+  }
+
   render() {
     return (
       <div id="layout">
@@ -26,6 +32,7 @@ class App extends Component {
             <div class="header">
               <h1>Cadastro de Autores</h1>
             </div>
+
             <div class="content" id="content">
               <div class="pure-form pure-form-aligned">
                 <form class="pure-form pure-form-aligned">
@@ -46,8 +53,8 @@ class App extends Component {
                     <button type="submit" class="pure-button pure-button-primary">Gravar</button>                                    
                   </div>
                 </form>             
+              </div>
 
-              </div>  
               <div>            
                 <table class="pure-table">
                   <thead>
@@ -57,10 +64,19 @@ class App extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Alberto</td>                
-                      <td>alberto.souza@caelum.com.br</td>                
-                    </tr>
+                  {
+                  this.state.lista
+                    .map(
+                      function(autor){
+                        return(
+                          <tr>
+                            <td>{autor.nome}</td>
+                            <td>{autor.email}</td>
+                          </tr>
+                        );
+                      }
+                    )
+                  }
                   </tbody>
                 </table> 
               </div>             

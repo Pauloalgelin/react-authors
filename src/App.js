@@ -32,10 +32,11 @@ class App extends Component {
                             email: this.state.email,
                             senha: this.state.passw
                           }),
-      success: function(respose){
+      success: (response) => {
         console.log("form sent");
+        this.setState({list: response});
       },
-      error: function(respose){
+      error: function(response){
         console.log("error sending form");
       }
     });

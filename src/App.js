@@ -3,6 +3,7 @@ import './css/pure-min.css';
 import './css/side-menu.css';
 import $ from 'jquery';
 import CustomInput from './components/CustomInput'
+import CustomButton from './components/CustomButton'
 
 class App extends Component {
 
@@ -70,27 +71,25 @@ class App extends Component {
 
                   <ul className="pure-menu-list">
                       <li className="pure-menu-item"><a href="#" className="pure-menu-link">Home</a></li>
-                      <li className="pure-menu-item"><a href="#" className="pure-menu-link">Autores</a></li>
-                      <li className="pure-menu-item"><a href="#" className="pure-menu-link">Livros</a></li>
+                      <li className="pure-menu-item"><a href="#" className="pure-menu-link">Authors</a></li>
+                      <li className="pure-menu-item"><a href="#" className="pure-menu-link">Books</a></li>
                   </ul>
               </div>
           </div>
 
          <div id="main">
             <div className="header">
-              <h1>Cadastro de Autores</h1>
+              <h1>Author form</h1>
             </div>
 
             <div className="content" id="content">
+
               <div className="pure-form pure-form-aligned">
                 <form className="pure-form pure-form-aligned" onSubmit={this.sendForm}>
                   <CustomInput htmlFor="name" label="Name" id="name" type="text" name="name" value={this.state.name} onChange={this.setName}/>
                   <CustomInput htmlFor="email" label="Email" id="email" type="email" name="email" value={this.state.email} onChange={this.setEmail}/>
                   <CustomInput htmlFor="passw" label="Password" id="passw" type="password" name="passw" value={this.state.passw} onChange={this.setPassw}/>
-                  <div className="pure-control-group">
-                    <label></label> 
-                    <button type="submit" className="pure-button pure-button-primary">Gravar</button>
-                  </div>
+                  <CustomButton type="submit" text="Save"/>
                 </form>
               </div>
 
